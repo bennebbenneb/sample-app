@@ -48,7 +48,7 @@ Resources:
         HttpPost:
           Type: Api
           Properties:
-            Path: 'skill1/task1'
+            Path: '/skill1/task1'
             Method: post
 
   task2:
@@ -74,5 +74,5 @@ Resources:
         HttpPost:
           Type: Api
           Properties:
-            Path: 'skill1/task2'
+            Path: '/skill1/task2'
             Method: post

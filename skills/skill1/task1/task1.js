@@ -9,5 +9,4 @@ exports.handler = async ({body = "{}", headers = {}}) => {
             text: getText()
         })
     };
-
 }
