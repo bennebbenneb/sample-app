@@ -1,0 +1,7 @@
+{
+    "name": "sample-app-library1",
+    "description": "Start from scratch starter project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {}
+}
