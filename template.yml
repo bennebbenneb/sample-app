@@ -25,9 +25,10 @@ Resources:
       ContentUri: shared/library2/
       Description: Sample library for the project.
       RetentionPolicy: Delete
-  task1:
+  skillTask1:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: sample-app-skill1-task1
       Layers:
         - !Ref library1
       CodeUri: ./skills/skill1/task1
@@ -51,9 +52,10 @@ Resources:
             Path: '/skill1/task1'
             Method: post
 
-  task2:
+  skill1Task2:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: sample-app-skill1-task2
       Layers:
         - !Ref library2
       CodeUri: ./skills/skill1/task2
