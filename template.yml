@@ -79,3 +79,4 @@ Resources:
           Properties:
             Path: '/skill1/task2'
             Method: post
+
