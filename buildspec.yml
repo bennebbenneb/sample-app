@@ -5,6 +5,7 @@ phases:
       # Install all dependencies (including dependencies for running tests)
       - echo Entered the install phase...
       # lerna will run npm install in all packages based off the /lerna.json config.
+      - sam build
       - npm install --global lerna
       - lerna bootstrap --concurrency=1 -- --production
   pre_build:
