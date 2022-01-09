@@ -5,7 +5,6 @@ phases:
       # Install all dependencies (including dependencies for running tests)
       - echo Entered the install phase...
       # lerna will run npm install in all packages based off the /lerna.json config.
-      - sam build
       - npm install --global lerna
       - lerna bootstrap --concurrency=1 -- --production
   pre_build:
@@ -16,6 +15,7 @@ phases:
       # - npm prune --production
   build:
     commands:
+      - sam build
       # Use AWS SAM to package the application by using AWS CloudFormation
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
 artifacts:
