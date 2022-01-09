@@ -1,4 +1,4 @@
-package helloworld;
+package skill2task1;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import static org.junit.Assert.assertEquals;
@@ -6,10 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-public class AppTest {
+public class Skill2Task1Test {
   @Test
   public void successfulResponse() {
-    App app = new App();
+    Skill2Task1 app = new Skill2Task1();
     APIGatewayProxyResponseEvent result = app.handleRequest(null, null);
     assertEquals(200, result.getStatusCode().intValue());
     assertEquals("application/json", result.getHeaders().get("Content-Type"));
