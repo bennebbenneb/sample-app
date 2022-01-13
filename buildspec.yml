@@ -15,6 +15,7 @@ phases:
       # - npm prune --production
   build:
     commands:
+      - pip install aws-sam-cli --upgrade
       - sam build
       - sam package --s3-bucket $S3_BUCKET --output-template-file template-export.yml
       # Use AWS SAM to package the application by using AWS CloudFormation
