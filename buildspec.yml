@@ -16,6 +16,7 @@ phases:
   build:
     commands:
       - pip install aws-sam-cli --upgrade
+      - pip install gradle
       - sam build
       - sam package --s3-bucket $S3_BUCKET --output-template-file template-export.yml
       # Use AWS SAM to package the application by using AWS CloudFormation
