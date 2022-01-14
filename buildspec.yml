@@ -7,6 +7,10 @@ phases:
       # lerna will run npm install in all packages based off the /lerna.json config.
       - npm install --global lerna
       - lerna bootstrap --concurrency=1 -- --production
+      - yum install -y amazon-linux-extras
+      - amazon-linux-extras install java-openjdk11
+      - export JAVA_HOME=$(realpath $(dirname $(realpath `which java`))/../..)
+      - pip install aws-sam-cli --upgrade
   pre_build:
     commands:
       # Discover and run unit tests in the '__tests__' directory
@@ -15,12 +19,10 @@ phases:
       # - npm prune --production
   build:
     commands:
-#      - pip install aws-sam-cli --upgrade
-#      - pip install gradle
-#      - sam build
-#      - sam package --s3-bucket $S3_BUCKET --output-template-file template-export.yml
+      - sam build
+      - sam package --s3-bucket $S3_BUCKET --output-template-file template-export.yml
       # Use AWS SAM to package the application by using AWS CloudFormation
-      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
+#      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
 artifacts:
   files:
     - template-export.yml
