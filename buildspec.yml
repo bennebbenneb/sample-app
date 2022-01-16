@@ -2,14 +2,11 @@ version: 0.2
 phases:
   install:
     commands:
-      # Install all dependencies (including dependencies for running tests)
       - echo Entered the install phase...
-      # lerna will run npm install in all packages based off the /lerna.json config.
       - npm install --global lerna
       - lerna bootstrap --concurrency=1 -- --production
-      - yum install -y amazon-linux-extras
+      - yum install -y amazon-linux-extras which
       - amazon-linux-extras install java-openjdk11
-      - export JAVA_HOME=$(realpath $(dirname $(realpath `which java`))/../..)
       - pip install aws-sam-cli --upgrade
   pre_build:
     commands:
